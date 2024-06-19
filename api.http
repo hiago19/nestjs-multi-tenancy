@@ -1,0 +1,60 @@
+GET http://localhost:3000/users
+
+### Create common user
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "name": "Jonh Kened",
+    "email": "test@test.com",
+    "password": "12345"
+}
+
+### Create partner user
+POST http://localhost:3000/partners/users
+Content-Type: application/json
+
+{
+    "name": "Jonh Cena",
+    "email": "test2@test.com",
+    "password": "12345"
+}
+
+### Login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "test1@test.com",
+    "password": "12345"
+}
+
+
+### Create partner
+POST http://localhost:3000/partners
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkpvbmggQ2VuYSIsImVtYWlsIjoidGVzdDJAdGVzdC5jb20iLCJyb2xlcyI6WyJQQVJUSU5FUiJdLCJjcmVhdGVkQXQiOiIyMDI0LTA2LTE5VDE4OjIwOjU5LjI2MFoiLCJ1cGRhdGVkQXQiOiIyMDI0LTA2LTE5VDE4OjIwOjU5LjI2MFoiLCJpYXQiOjE3MTg4MjEyNzcsImV4cCI6MTcxODg0MTI3N30.5iY4_SqhOPESSWi4F29nphnJERdjvUOqIkEpAOxCZE4
+
+{
+    "name": "partner 2"
+}
+
+### Get partners
+GET http://localhost:3000/partners
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkpvbmggQ2VuYSIsImVtYWlsIjoidGVzdDJAdGVzdC5jb20iLCJyb2xlcyI6WyJQQVJUSU5FUiJdLCJjcmVhdGVkQXQiOiIyMDI0LTA2LTE5VDE4OjIwOjU5LjI2MFoiLCJ1cGRhdGVkQXQiOiIyMDI0LTA2LTE5VDE4OjIwOjU5LjI2MFoiLCJpYXQiOjE3MTg4MjEyNzcsImV4cCI6MTcxODg0MTI3N30.5iY4_SqhOPESSWi4F29nphnJERdjvUOqIkEpAOxCZE4
+
+
+### Create event
+POST http://localhost:3000/events
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkpvbmggQ2VuYSIsImVtYWlsIjoidGVzdDJAdGVzdC5jb20iLCJyb2xlcyI6WyJQQVJUSU5FUiJdLCJjcmVhdGVkQXQiOiIyMDI0LTA2LTE5VDE4OjIwOjU5LjI2MFoiLCJ1cGRhdGVkQXQiOiIyMDI0LTA2LTE5VDE4OjIwOjU5LjI2MFoiLCJpYXQiOjE3MTg4MjEyNzcsImV4cCI6MTcxODg0MTI3N30.5iY4_SqhOPESSWi4F29nphnJERdjvUOqIkEpAOxCZE4
+
+{
+    "name": "Evento 2",
+    "description": "Evento 2",
+    "date": "2024-06-17T19:06:34.60"
+}
+
+### Get events
+GET http://localhost:3000/events
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkpvbmggRG9lIiwiZW1haWwiOiJ0ZXN0MUB0ZXN0LmNvbSIsInJvbGVzIjpbIlVTRVIiXSwiY3JlYXRlZEF0IjoiMjAyNC0wNi0xOVQxODowOTo1Ni4yNzdaIiwidXBkYXRlZEF0IjoiMjAyNC0wNi0xOVQxODowOTo1Ni4yNzdaIiwiaWF0IjoxNzE4ODMxMzY3LCJleHAiOjE3MTg4NTEzNjd9.6qdVuTDs7vyDm0zwMpme3pmhFjktjNuxK6sMoSdTlgU
