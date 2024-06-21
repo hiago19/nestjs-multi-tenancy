@@ -1,73 +1,128 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# nestjs-multi-tenancy
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Sobre o Projeto
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+O **nestjs-multi-tenancy** é um projeto desenvolvido para demonstrar como implementar um sistema multi-tenancy usando o framework NestJS. Multi-tenancy é uma arquitetura onde uma única instância de software serve múltiplos clientes (tenants), permitindo o isolamento de dados e configurações para cada tenant.
 
-## Description
+## Estrutura do Projeto
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+O projeto está organizado da seguinte forma:
 
-## Installation
+- **src/**: Contém o código-fonte do projeto.
+  - **auth/**: Lida com a autenticação e autorização de usuários.
+    - **partner-users/**: Controlador para gerenciar usuários parceiros.
+    - **roles/**: Implementa a lógica de autorização baseada em roles.
+    - **users/**: Controladores, serviços e DTOs para gerenciar usuários.
+  - **database/**: Configurações e provedores de banco de dados.
+    - **database.module.ts**: Módulo de configuração do banco de dados.
+    - **database.providers.ts**: Provedores de conexão com o banco de dados.
+  - **events/**: Lida com a criação e gerenciamento de eventos.
+    - **dto/**: Contém DTOs para eventos.
+    - **events.controller.ts**: Controlador para gerenciar operações relacionadas aos eventos.
+    - **events.service.ts**: Serviço para lógica de negócios relacionada aos eventos.
+  - **partners/**: Lida com a criação e gerenciamento de parceiros.
+    - **dto/**: Contém DTOs para parceiros.
+    - **partners.controller.ts**: Controlador para gerenciar operações relacionadas aos parceiros.
+    - **partners.service.ts**: Serviço para lógica de negócios relacionada aos parceiros.
+  - **prisma/**: Contém o módulo e serviço do Prisma.
+  - **tenant/**: Implementa a lógica de multi-tenancy.
+    - **tenant.interceptor.ts**: Interceptador para identificar e configurar o tenant.
+    - **tenant.service.ts**: Serviço para gerenciar o contexto do tenant.
+  - **app.controller.ts**: Controlador principal do aplicativo.
+  - **app.module.ts**: Módulo principal do aplicativo.
+  - **app.service.ts**: Serviço principal do aplicativo.
+  - **main.ts**: Arquivo de entrada principal para iniciar o aplicativo NestJS.
+- **config/**: Contém arquivos de configuração para diferentes ambientes.
+- **test/**: Contém testes para o aplicativo.
+- **docker-compose.yaml**: Arquivo de configuração do Docker para subir o ambiente do MySQL.
+- **api.http**: Arquivo para testar as APIs do projeto.
+- **package.json**: Arquivo de configuração do npm que lista as dependências e scripts do projeto.
+- **.prettierrc**: Arquivo de configuração do Prettier.
+- **Prisma/**: Contém a configuração e migrações do Prisma.
+  - **schema.prisma**: Define o esquema do banco de dados.
+  - **migrations/**: Contém as migrações do banco de dados.
 
-```bash
-$ npm install
-```
+## Tecnologias Utilizadas
 
-## Running the app
+- **NestJS**: Framework para construção de aplicações Node.js escaláveis e eficientes.
+- **TypeScript**: Linguagem de programação que estende o JavaScript adicionando tipos.
+- **Prisma**: ORM para Node.js e TypeScript.
+- **MySQL**: Sistema de gerenciamento de banco de dados relacional.
+- **Docker**: Plataforma para desenvolvimento, envio e execução de aplicações em contêineres.
 
-```bash
-# development
-$ npm run start
+## Rodando Localmente
 
-# watch mode
-$ npm run start:dev
+Para executar o projeto localmente, siga as instruções abaixo:
 
-# production mode
-$ npm run start:prod
-```
+1. **Clone o repositório:**
 
-## Test
+   ```bash
+   git clone https://github.com/hiago19/nestjs-multi-tenancy.git
+   ```
 
-```bash
-# unit tests
-$ npm run test
+2. Navegue até o diretório do projeto:
 
-# e2e tests
-$ npm run test:e2e
+   ```bash
+   cd nestjs-multi-tenancy
+   ```
 
-# test coverage
-$ npm run test:cov
-```
+3. Instale as dependências:
 
-## Support
+   ```bash
+   npm install
+   ```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+4. Suba o banco de dados MySQL com Docker:
 
-## Stay in touch
+   ```bash
+   docker-compose up
+   ```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+5. Configure o Prisma:
 
-## License
+   ```bash
+   npx prisma generate //gera o cliente Prisma
+   ```
 
-Nest is [MIT licensed](LICENSE).
+6. Execute as migrações do banco de dados:
+
+   ```bash
+   npx prisma migrate dev
+   ```
+
+7. Inicie a aplicação:
+
+   ```bash
+   npm run start:dev
+   ```
+
+8. Teste as APIs utilizando o arquivo `api.http`:
+   - Você pode utilizar uma extensão como "REST Client" no VSCode para enviar requisições HTTP diretamente do arquivo `api.http`.
+
+## Funcionalidades
+
+- Gerenciamento de Tenants: Adicionar, editar e remover tenants.
+- Isolamento de Dados: Cada tenant possui seu próprio conjunto de dados, isolado dos demais.
+- Configurações Multi-Tenant: Configurações específicas para cada tenant.
+- Integração com MySQL: Uso do banco de dados MySQL para armazenamento de dados.
+- Uso do Docker: Facilita a configuração e o gerenciamento do ambiente de desenvolvimento.
+
+## Demonstração
+
+Aqui estão algumas capturas de tela do projeto em execução:
+
+1. **Cadastro de Usuarios**:
+   ![Menu Principal](https://github.com/hiago19/appEstoque/assets/81202387/996ad42e-2df8-40ba-b6fe-70485e90e049)
+
+
+2. **Cadastro de Tenancy**:
+   ![Login de Usuário](https://github.com/hiago19/appEstoque/assets/81202387/ad72c66b-2cd3-4e63-ae97-d3784c57cc10)
+
+
+3. **Cadastro de Eventos**:
+   ![Adicionar Produto](https://github.com/hiago19/appEstoque/assets/81202387/4851662b-5ea2-4317-914f-b748e6d93c36)
+
+
+4. **Listar Eventos**:
+   ![Listar Produtos](https://github.com/hiago19/appEstoque/assets/81202387/e890b83b-cec0-419b-aaa0-0cb58dd3ba51)
+
