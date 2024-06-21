@@ -75,7 +75,7 @@ Para executar o projeto localmente, siga as instruções abaixo:
 4. Suba o banco de dados MySQL com Docker:
 
    ```bash
-   docker-compose up
+   docker compose up
    ```
 
 5. Configure o Prisma:
@@ -112,17 +112,21 @@ Para executar o projeto localmente, siga as instruções abaixo:
 Aqui estão algumas capturas de tela do projeto em execução:
 
 1. **Cadastro de Usuarios**:
-   ![Menu Principal](https://github.com/hiago19/appEstoque/assets/81202387/996ad42e-2df8-40ba-b6fe-70485e90e049)
+   ![Cadastro de Usuarios](https://github.com/hiago19/nestjs-multi-tenancy/assets/81202387/a221cb2a-e48c-451b-8ab5-489db49affe3)
 
 
-2. **Cadastro de Tenancy**:
-   ![Login de Usuário](https://github.com/hiago19/appEstoque/assets/81202387/ad72c66b-2cd3-4e63-ae97-d3784c57cc10)
+
+2. **Cadastro de Partner**:
+   ![Cadastro de Partner](https://github.com/hiago19/nestjs-multi-tenancy/assets/81202387/2ed0ad0d-be62-4cf0-87e6-b193d5f09f9a)
 
 
-3. **Cadastro de Eventos**:
-   ![Adicionar Produto](https://github.com/hiago19/appEstoque/assets/81202387/4851662b-5ea2-4317-914f-b748e6d93c36)
+
+3. **Login**:
+   ![Login](https://github.com/hiago19/nestjs-multi-tenancy/assets/81202387/1a9fbb07-e07f-452c-9201-0480800a68ab)
 
 
-4. **Listar Eventos**:
-   ![Listar Produtos](https://github.com/hiago19/appEstoque/assets/81202387/e890b83b-cec0-419b-aaa0-0cb58dd3ba51)
+
+4. **Cadastro de Eventos**:
+   ![Cadastro de Eventos](https://github.com/hiago19/nestjs-multi-tenancy/assets/81202387/ac097513-af8d-4da6-9bef-6a29dfe97c13)
+
 
